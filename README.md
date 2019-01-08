@@ -1,0 +1,3 @@
+# numberic
+
+Advanced mathematical library
