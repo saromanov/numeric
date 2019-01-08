@@ -8,15 +8,15 @@ var errNegativeNumber = errors.New("number should be positive")
 type Matrix []Vector
 
 // Zeros defines zero matrix
-func Zeros(n, m int) (Matrix, error) {
-	if n < 0 || m < 0 {
+func Zeros(r, c int) (Matrix, error) {
+	if r < 0 || c < 0 {
 		return nil, errNegativeNumber
 	}
 
-	res := make(Matrix, n)
-	for i := 0; i < n; i++ {
-		res[i] = make(Vector, m)
-		for j := 0; j < m; j++ {
+	res := make(Matrix, r)
+	for i := 0; i < r; i++ {
+		res[i] = make(Vector, c)
+		for j := 0; j < c; j++ {
 			res[i][j] = 0
 		}
 	}
