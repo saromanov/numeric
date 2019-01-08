@@ -1,4 +1,4 @@
-package math
+package linear
 
 // Vector provides definition of the vector
-var Vector []float64
+type Vector []float64
