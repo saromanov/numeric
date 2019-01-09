@@ -17,4 +17,6 @@ func TestGCD(t *testing.T) {
 	assert.Equal(t, r, int64(5), "numbers is not equal")
 	r = GCD(5, -10)
 	assert.Equal(t, r, int64(5), "numbers is not equal")
+	r = GCD(-5, 10)
+	assert.Equal(t, r, int64(5), "numbers is not equal")
 }
