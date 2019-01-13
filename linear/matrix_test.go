@@ -34,3 +34,43 @@ func TestZeros(t *testing.T) {
 	}
 
 }
+
+func TestRows(t *testing.T) {
+	res, err := Zeros(2, 2)
+	if err != nil {
+		log.Fatal(err)
+	}
+	assert.Equal(t, res.Rows(), 2, "numbers is not equal")
+
+	res, err = Zeros(3, 2)
+	if err != nil {
+		log.Fatal(err)
+	}
+	assert.Equal(t, res.Rows(), 2, "numbers is not equal")
+
+	res, err = Zeros(2, 7)
+	if err != nil {
+		log.Fatal(err)
+	}
+	assert.Equal(t, res.Rows(), 7, "numbers is not equal")
+}
+
+func TestColumns(t *testing.T) {
+	res, err := Zeros(2, 2)
+	if err != nil {
+		log.Fatal(err)
+	}
+	assert.Equal(t, res.Columns(), 2, "numbers is not equal")
+
+	res, err = Zeros(3, 2)
+	if err != nil {
+		log.Fatal(err)
+	}
+	assert.Equal(t, res.Columns(), 3, "numbers is not equal")
+
+	res, err = Zeros(2, 7)
+	if err != nil {
+		log.Fatal(err)
+	}
+	assert.Equal(t, res.Columns(), 2, "numbers is not equal")
+}

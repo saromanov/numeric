@@ -8,17 +8,34 @@ var errNegativeNumber = errors.New("number should be positive")
 type Matrix []Vector
 
 // Zeros defines zero matrix
-func Zeros(r, c int) (Matrix, error) {
+func Zeros(c, r int) (Matrix, error) {
 	if r < 0 || c < 0 {
 		return nil, errNegativeNumber
 	}
 
-	res := make(Matrix, r)
-	for i := 0; i < r; i++ {
-		res[i] = make(Vector, c)
-		for j := 0; j < c; j++ {
+	res := make(Matrix, c)
+	for i := 0; i < c; i++ {
+		res[i] = make(Vector, r)
+		for j := 0; j < r; j++ {
 			res[i][j] = 0
 		}
 	}
 	return res, nil
+}
+
+// Columns returns number of columns on matrix
+func (m Matrix) Columns() int {
+	return len(m)
+}
+
+// Rows return number of rows on matrix
+func (m Matrix) Rows() int {
+	return len(m[0])
+}
+
+// Multiply provides multiply of two matrix
+// A x B = (m x n) x (n x m), where n, m are integers who define
+// * the dimensions of matrices A, B.
+func (m Matrix) Multiply(n Matrix) (Matrix, error) {
+	return m, nil
 }
