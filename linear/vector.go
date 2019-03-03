@@ -1,6 +1,9 @@
 package linear
 
-import "errors"
+import (
+	"errors"
+	"math"
+)
 
 var errVectorMismatch = errors.New("vector mismatch")
 
@@ -23,4 +26,13 @@ func (v Vector) Dot(p Vector) (float64, error) {
 		result += v[i] * p[i]
 	}
 	return result, nil
+}
+
+// Norm calculates of the vector norm
+func (v Vector) Norm() float64 {
+	var norm float64
+	for _, x := range v {
+		norm += x * x
+	}
+	return math.Sqrt(norm)
 }

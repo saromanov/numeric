@@ -52,3 +52,8 @@ func TestDot(t *testing.T) {
 		t.Fatal("vector mismatch")
 	}
 }
+
+func TestNorm(t *testing.T) {
+	v := Vector([]float64{1, 2, 5})
+	assert.Equal(t, v.Norm(), 5.477225575051661, "norm mismatch")
+}
