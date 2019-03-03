@@ -74,3 +74,16 @@ func TestColumns(t *testing.T) {
 	}
 	assert.Equal(t, res.Columns(), 2, "numbers is not equal")
 }
+
+func TestMatrixMax(t *testing.T) {
+	m := Matrix([]Vector{
+		Vector{4, 2},
+		Vector{6, 7},
+		Vector{3, 7},
+		Vector{4, 7},
+		Vector{9, 7},
+	})
+	result, err := m.Max(1)
+	assert.NoError(t, err)
+	assert.Equal(t, result, 9, "numbers is not equal")
+}

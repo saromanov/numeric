@@ -39,3 +39,21 @@ func (m Matrix) Rows() int {
 func (m Matrix) Multiply(n Matrix) (Matrix, error) {
 	return m, nil
 }
+
+// Max return maximum value along the axis
+func (m Matrix) Max(axis int) (float64, error) {
+	if axis == 1 {
+		var result float64
+		for _, rows := range m {
+			r, err := rows.Max()
+			if err != nil {
+				return 0, err
+			}
+			if r > result {
+				result = r
+			}
+		}
+		return result, nil
+	}
+	return 0, nil
+}
