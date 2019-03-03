@@ -38,7 +38,10 @@ func (v Vector) Norm() float64 {
 }
 
 // Max returns maximum value of the vector
-func (v Vector) Max() float64 {
+func (v Vector) Max() (float64, error) {
+	if len(v) == 0 {
+		return 0, errors.New("vector is empty")
+	}
 	var result float64
 	result = v[0]
 	for i := 1; i < len(v); i++ {
@@ -46,5 +49,5 @@ func (v Vector) Max() float64 {
 			result = v[i]
 		}
 	}
-	return result
+	return result, nil
 }
