@@ -36,3 +36,15 @@ func (v Vector) Norm() float64 {
 	}
 	return math.Sqrt(norm)
 }
+
+// Max returns maximum value of the vector
+func (v Vector) Max() float64 {
+	var result float64
+	result = v[0]
+	for i := 1; i < len(v); i++ {
+		if v[i] > result {
+			result = v[i]
+		}
+	}
+	return result
+}
