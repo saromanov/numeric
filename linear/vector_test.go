@@ -63,4 +63,10 @@ func TestMax(t *testing.T) {
 	res, err := v.Max()
 	assert.NoError(t, err)
 	assert.Equal(t, res, float64(5), "incorrect maximim value")
+
+	v = Vector([]float64{})
+	_, err = v.Max()
+	if err == nil {
+		t.Errorf("should return error")
+	}
 }
