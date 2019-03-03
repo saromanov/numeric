@@ -80,10 +80,10 @@ func TestMatrixMax(t *testing.T) {
 		Vector{4, 2},
 		Vector{6, 7},
 		Vector{3, 7},
-		Vector{4, 7},
-		Vector{9, 7},
+		Vector{4, 10},
+		Vector{9, 3},
 	})
-	result, err := m.Max(1)
+	result, err := m.Max()
 	assert.NoError(t, err)
-	assert.Equal(t, result, 9, "numbers is not equal")
+	assert.Equal(t, result, float64(10), "numbers is not equal")
 }
